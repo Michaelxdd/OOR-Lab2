@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <meta charset="UTF-8"  />
+  <title>Web worker Michał Podleśny</title>
+ </head>
+ <body>
+  <p>Największa liczba pierwsza: <output id="result"></output></p>
+  <script>
+   var worker = new Worker('worker.js'); //kostruktor wątka tworzy go i wraca do niego reprezentując
+   //go, w tym miejscu też przekazują sobie informacje. -->
+   worker.onmessage = function (event) {	//obsługa zdarzeń onmessage pozwala na otrzymanie 
+   // wiadomości od workera. 
+     document.getElementById('result').textContent = event.data;
+   };
+  </script>
+ </body>
+</html>
